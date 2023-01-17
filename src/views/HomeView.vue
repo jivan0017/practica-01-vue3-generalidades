@@ -1,9 +1,8 @@
 <template>
-  <main>
-
-    <div class="container">
-            <h1 class="text-center text-muted">Objetos</h1>
-
+    <div class="container ">
+      <div class="row justify-content-between">
+        <div class="card col-md-5 col-sm-6 item">
+          <h1 class="text-center text-muted">Objetos</h1>
             <form class="row g-3" @submit="incrementarContador">
                 <div class="col-12">
                     <span class="text-secundary">Objeto persona completo</span>
@@ -13,43 +12,43 @@
                     <label for="staticEmail2" class="visually-hidden">Salario a modificar</label>
                     <input 
                         type="number" 
-                        class="form-control"
-                    >
+                        class="form-control">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Modificar objeto</button>
                 </div>
-            </form>            
+            </form>
+        </div>
 
-        </div>   
+        <div class="card col-md-5 col-sm-6 item">
 
-    <div> ejemplo práctica propiedades reactivas</div>    
+          <label>
+            texto estático, el contador tiene como valor:
+            {{ contador }}
+          </label>
 
-    <label>
-      texto estático, el contador tiene como valor:
-      {{ contador }}
+            <button @click="incrementarContador">+</button>
+            <button @click="decrementarContador">-</button>
 
-      <button @click="incrementarContador">+</button>
-      <button @click="decrementarContador">-</button>
+            <div class="linea-divisora"></div>
 
-      <div class="linea-divisora"></div>
+            <span>OBJETO REACTIVO</span>
+            <label>Nombre del objeto persona:</label>
+            <input 
+              type="text" 
+              v-model="objPersona.nombre"
+            />
+            <button @click="mutarEdad">
+              mutar/modificar la edad
+            </button>
 
-      <span>OBJETO REACTIVO</span>
-      <label>Nombre del objeto persona:</label>
-      <input 
-        type="text" 
-        v-model="objPersona.nombre"
-      />
-      <button @click="mutarEdad">
-        mutar/modificar la edad
-      </button>
-
-      <div>objeto persona completo:</div>
-      <span class="objeto">
-        {{ objPersona }}
-      </span>
-    </label>
-  </main>
+            <div>objeto persona completo:</div>
+            <span class="objeto">
+              {{ objPersona }}
+            </span>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script setup>
